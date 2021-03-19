@@ -1,0 +1,53 @@
+pre condition
+
+1. STUDY03에  TDEPT의 SELECT 와 RESOURCE GRANT 
+2. STUDY03에 CREATE PUBLIC SYNONYM 권한 부여 
+   --GRANT CREATE PUBLIC SYNONYM  TO STUDY03
+
+보너스 과제
+1. STUDY03에서 TDEPT의 자료를 SELECT 하여 동일 이름으로 TABLE을 만들되 
+   AREA가 인천인 경우만 입력되도록 CREATE TABLE 문 작성
+2. TDEPT 에서 모든 자료를 검색해 어느 유저의 테이블인지 확인
+3. STUDY03에서 TDEPT에 대한 PUBLIC SYNONYM을 TDEPT라고 생성
+4. SYNONYM의 운선 순위 스스로 확인
+   1) STUDY02에서 STUDY01.TDEPT를 대상으로 SYNONYM 생성
+   2) STUDY03에서 STUDY03.TDEPT 대상으로 PUBLIC SYNONYM 생성
+   3) 일반 시노님과 PUBLIC 시노님의 경합 : 
+      STUDY02에서 TDEPT SELECT
+   4) 테이블과 시노님의 경합
+      STUDY01에서 TDEPT SELECT
+5. STUDY02에서 TDEPT SYNONYM 제거 
+6. STUDY02에서 TDEPT SELECT 후 STUDY02의 시노님이 제거된 효과 확인
+
+2] 장난감 공장 생산 관리
+
+1.  생산관리용 계정인 STUDY05 를 생성하여 생산관리 전용 계정으로 
+    이용하기 위한 권한을 부여하고, 
+    OBJECT 를 STUDY04에 CREATE 합니다.(dba권한 부여 안됨)
+2. 필요한 테이블을 설계하고 생성하며 필요한 OBECT와 권한도 
+   직접 정의하고 생성 및 관리합니다.
+3. 생성된 테이블에 DATA 입력
+   -- 공장(P1,P2,P3..), 
+      라인(L1,L2,L3..), 
+      item(I01,I02,I03...), 
+      spec(S01,S02,S03....) 
+      bom 정보 생성
+     ( 반드시 select 문과 join을 이용한 insert 문 이용) 
+     
+4. 매일 각 생산 라인은 SPEC 중 3가지 종류 SPEC 까지만 생산 가능하다는 가정하에 라인을 100% 가동하는 
+   2020년 8월1일부터 10일까지의 10일치 투입계획 수립
+   (insert ..select 문과 pl/sql 블록만 이용 가능)
+
+5. 투입 일자별로 필요 ITEM의 수량을 정리해 1달 전 일자로 
+   구매 요청일자를 만들어 
+   구매팀에 전달할 data 생성 insert..select 문 생성 
+   
+6. 투입계획과 BOM을 연계하여 일자별 라인별 필요부품 및 부품 개수를 추출해 
+   일자별 라인별 부품 조달계획 수립하되
+   JIT 생산을 지원하기 위한 5회 분할 조달을 가정한 
+   일자별 생산 라인별 회차별 라인별 부품 조달 계획 data 생성
+   (insert ..select 문과 pl/sql 블록만 이용 가능)
+
+
+
+   
